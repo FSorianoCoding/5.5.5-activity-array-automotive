@@ -9,6 +9,9 @@ class Vehicle {
         this.mileage = mileage;
         this.started = false;
         this.numberOfWheels = 0;
+        //added fuel to parent because it is being invoked in methods below.
+        //If this is incorrect to do, please let me know.
+        this.fuel = 0
     }
 
     start() {
@@ -62,22 +65,23 @@ class Vehicle {
         decelerate();
     }
 
-    autoPark()
-    {
+    // autoPark()
+    // {
 
-    }
+    // }
 
-    autoDrive()
-    {
+    // autoDrive()
+    // {
       
-    }
+    // }
 
     typeOfVehicle(wheels) {
-        if (this.numberOfWheels == 8 && 8 == wheels) {
+        // removed "this.numberOfWheels == X &&" from if/else if parameters because code was accepting 0 == wheels only
+        if (8 == wheels) {
             console.log(this.model + " " + this.make + " is a Truck");
-        } else if (this.numberOfWheels == 4 && 4 == wheels) {
-            console.log(this.model + " " + this.make + " is a CAr");
-        } else if (this.numberOfWheels == 2 && 2 == wheels) {
+        } else if (4 == wheels) {
+            console.log(this.model + " " + this.make + " is a Car");
+        } else if (2 == wheels) {
             console.log(this.model + " " + this.make + " is a Bike");
         } else {
             console.log("Unknown type of vehicle");

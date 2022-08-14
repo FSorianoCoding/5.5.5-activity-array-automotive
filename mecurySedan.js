@@ -19,21 +19,41 @@ class Car extends VehicleModule.Vehicle{
         this.maximumPassengers = 5
         this.numberOfWheels = 4
         this.maximumSpeed = 160
-        //adding fuel to be equal to 10, but not sure if it will accept.
+        //adding fuel to be equal to 10, but not sure if it will accept since it already
+        //exists as = 0 in the BaseClass code.
         this.fuel = 10
-        this.scheduleService = false
+        this.maintenance = false
         this.availableRoom = true
     }
 
     loadPassenger(num){
         this.passenger = this.passenger + num
         if(this.passenger <= this.maximumPassengers){
-            console.log("Let's ride!")
-            return this.availableRoom == true
+            console.log("Let's ride!")           
+            return this.availableRoom == true             
         } 
         else {
             console.log("Not enough room.")
-            return this.availableRoom = false
+            this.availableRoom = false
+        }
+    }
+
+    // creating new carStart method to call on vehicle start() method that already exists.
+    carStart() {
+        return super.start()
+    }
+
+
+    // created scheduleService method and created maintenance property to run with method.
+    scheduleService(mileage){
+        super.mileage = mileage
+        if (this.mileage > 30000){
+            console.log("Time to schedule a service!")
+            return this.maintenance = true
+        }
+        else {
+            console.log("She's still got more to go!")
+            return this.maintenance = false
         }
     }
 }

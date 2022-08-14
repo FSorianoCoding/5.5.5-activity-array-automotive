@@ -14,13 +14,15 @@ class Vehicle {
         this.fuel = 0
     }
 
+
+    //flipped lines 21/22 & 24/25 for console.log to work and added return to log the new this. values
     start() {
         if (this.fuel > 0) {
-            return this.started = true;
             console.log("engine started...!!!");
+            return this.started = true;            
         } else {
-            return this.started = false;
             console.log("engine cannot start...");
+            return this.started = false;
         }
     }
     accelerate() {

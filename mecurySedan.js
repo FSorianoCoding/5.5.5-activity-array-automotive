@@ -21,6 +21,21 @@ class Car extends VehicleModule.Vehicle{
         this.maximumSpeed = 160
         //adding fuel to be equal to 10, but not sure if it will accept.
         this.fuel = 10
-        scheduleService = false
+        this.scheduleService = false
+        this.availableRoom = true
+    }
+
+    loadPassenger(num){
+        this.passenger = this.passenger + num
+        if(this.passenger <= this.maximumPassengers){
+            console.log("Let's ride!")
+            return this.availableRoom == true
+        } 
+        else {
+            console.log("Not enough room.")
+            return this.availableRoom = false
+        }
     }
 }
+
+
